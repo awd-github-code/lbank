@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+ 
+{% block title %}Units{% endblock %}
+ 
+{% block body %}
+    <br /><br /><br /><br />
+    <div class="container-fluid px-5 mt-4">
+        <div class="d-flex">                     
+            <div class="container-fluid ps-4">
+                <div class="table-responsive"> 
+                    <table class="table table-hover table-borderless">               
+                        <tbody>
+                            {% for unit in units %}                                 
+                                <tr>                                                                                                                         
+                                    <td class="py-3 px-4" style=" width: 98%; border-radius: 1em 0 0 1em;"> 
+                                        <a class="row-link" href="{{ path('item_list', {'unit_id': unit.id}) }}">   
+                                            <div>                                                            
+                                                <span class="h4">{{ unit.title }}</span>  
+                                            </div>
+                                        </a>
+                                    </td> 
+                                     <td class="py-3 px-4 text-end" style="width: 2%; border-radius: 0 1em 1em 0;"> 
+                                        <a class="row-link" href="{{ path('item_list', {'unit_id': unit.id}) }}">                             
+                                            <span class="h4 badge bg-dark text-end">{{ unit.ord }}</span> 
+                                        </a>                                                        
+                                    </td>                                 
+                                </tr>                                 
+                            {% endfor %}         
+                        </tbody>
+                    </table>
+                </div>
+            </div>                            
+        </div>       
+    </div>  
+{% endblock %}
